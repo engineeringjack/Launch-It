@@ -1,0 +1,34 @@
+{
+    "note": {
+        "81": {
+            "note": "81",
+            "colorOnPress": 21,
+            "colorOnRelease": 32,
+            "actionMode": "Aux",
+            "lightMode": "Flash",
+            "fileLocation": "test1.mp3",
+            "command": "",
+            "flashingDelay": 0.5,
+            "layering": false,
+            "volume": 1.0,
+            "length": 0,
+            "fadeIn": 100,
+            "fadeOut": 100
+        },
+        "18": {
+            "note": "18",
+            "colorOnPress": 92,
+            "colorOnRelease": 2,
+            "actionMode": "Aux",
+            "lightMode": "Solid",
+            "fileLocation": "test.mp3",
+            "command": "",
+            "flashingDelay": 0.5,
+            "layering": false,
+            "volume": 0.8,
+            "length": 0,
+            "fadeIn": 100,
+            "fadeOut": 100
+        }
+    }
+}
