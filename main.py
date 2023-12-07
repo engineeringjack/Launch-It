@@ -15,8 +15,8 @@ def main(context):
         reference = os.path.dirname(os.path.abspath(__file__))
         prefData = prefDataLoader(reference)
         noteData = noteDataLoader(reference)
-        outputHandle.startUp(prefData, noteData, context)
         inputOperator.startUp(prefData, noteData, context)
+        outputHandle.startUp(prefData, noteData, context)
         clearLighting(prefData, noteData, context)
         setupLighting(prefData, noteData, context)
         print("Everything looks good!")
@@ -51,7 +51,10 @@ def noteDataLoader(reference):
 
 
 def close(prefData, noteData, context):
-    clearLighting(prefData, noteData, context)
+    try:
+        clearLighting(prefData, noteData, context)
+    except:
+        print("Failed to reset board! Artifacts may appear on reconnect.")
     context[0] = True
     inputOperator.startHandle(0, 0, 0, context)
     suicideNote()
