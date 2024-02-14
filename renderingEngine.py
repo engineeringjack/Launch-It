@@ -4,6 +4,7 @@ import time
 import pygame
 import os
 import json
+from verbose import printv
 
 global recording, lightQueue, backgroundQueue, suicide, recordingState, recordingInfo
 recording = False
@@ -144,11 +145,13 @@ def mainLighting(prefData, noteData, context, rawInput, directConnect=False):
 
 
 def clearLighting(prefData, noteData, context):
+    printv("Clearing lighting.", context[1])
     for x in range(127):
         mainLighting(prefData, noteData, context, [x, 0], True)
 
 
 def setupLighting(prefData, noteData, context):
+    printv("Setting up lighting.", context[1])
     for x in range(127):
         try:
             mainLighting(prefData, noteData, context, [
@@ -161,9 +164,11 @@ def setupLighting(prefData, noteData, context):
 def newBackgroundTask(prefData, noteData, context, note):
     global backgroundQueue
     if note in backgroundQueue:
+        printv("Removing rendering background task for: " + note, context[1])
         backgroundQueue.remove(note)
     else:
         backgroundQueue.append(note)
+        printv("New rendering background task on: " + note, context[1])
         thread = threading.Thread(target=backgroundTask, args=(
             prefData, noteData, context, note,))
         thread.start()
@@ -212,6 +217,7 @@ def audioBuffer(prefData, noteData, context, note):
     global backgroundQueue
     thread = threading.Thread(target=audioTask, args=(
         prefData, noteData, context, note,))
+    printv("New audio background task for: " + note, context[1])
     thread.start()
 
 
@@ -237,6 +243,7 @@ def audioTask(prefData, noteData, context, note):
 
 
 def setAllColors(prefData, noteData, context, recordingState):
+    printv("Setting all color data.", context[1])
     for x in range(127):
         if not x % 10 == 9:
             mainLighting(prefData, noteData, context, [

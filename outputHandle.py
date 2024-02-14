@@ -1,4 +1,5 @@
 import mido
+from verbose import printv
 
 global outputController
 outputController = None
@@ -17,16 +18,28 @@ def connectOutput(prefData):
     global outputController
     alreadySaid = False
     output_ports = mido.get_output_names()
-    while not output_ports:
-        output_ports = mido.get_output_names()
-        if output_ports and prefData["midi_output_port"] < 0 or prefData["midi_output_port"] >= len(output_ports) and alreadySaid == False:
-            print("Invalid port index, we'll keep looking.")
-            alreadySaid = True
-    print("Found output: " + output_ports[prefData["midi_output_port"]])
-    return mido.open_output(output_ports[prefData["midi_output_port"]])
+    print(output_ports)
+    alreadySaid2 = False
+    while True:
+        while not output_ports:
+            output_ports = mido.get_output_names()
+            if output_ports and prefData["midi_output_port"] < 0 or prefData["midi_output_port"] >= len(output_ports) and alreadySaid == False:
+                print("Device not found, we'll keep looking...")
+                alreadySaid = True
+        try:
+            print("Found output: " +
+                  output_ports[prefData["midi_output_port"]])
+            return mido.open_output(output_ports[prefData["midi_output_port"]])
+        except:
+            if not alreadySaid2:
+                print(
+                    "Invalid index detected. Change output midi index in the configuration file.")
+                alreadySaid2 = True
 
 
 def mainHandler(prefData, outputData, context):
     global outputController
+    printv("Sent output note: " +
+           outputData[0] + ", velocity: " + outputData[1], context[1])
     outputController.send(mido.Message(
         'note_on', note=outputData[0], velocity=outputData[1]))
