@@ -1,4 +1,5 @@
 from renderingEngine import clearLighting, suicideNote, setupLighting
+from verbose import printv
 import inputOperator
 import outputHandle
 import os
@@ -6,12 +7,19 @@ import os.path
 import json
 import traceback
 import time
+import platform
+
+verbose = True
 
 
 def main(context):
     try:
+        print("Welcome to LaunchIt!")
+        printv("Verbose Enabled!", context[1])
         print("Starting...")
-
+        print("Using OS data for... " + platform.system() + "!")
+        print("Running script version: BETA!")
+        print("Script files look okay. Errors will be logged when required.")
         reference = os.path.dirname(os.path.abspath(__file__))
         prefData = prefDataLoader(reference)
         noteData = noteDataLoader(reference)
@@ -20,9 +28,10 @@ def main(context):
         clearLighting(prefData, noteData, context)
         setupLighting(prefData, noteData, context)
         print("Everything looks good!")
-        time.sleep(1000)
+        while True:
+            time.sleep(1)
     except KeyboardInterrupt:
-        print("Closing all services, please hold.")
+        print("Closing all services by user request, please hold.")
     except Exception as e:
         print("Critical error occurred. Graceful shutdown initiated. See below:")
         print(traceback.format_exc())
@@ -61,5 +70,5 @@ def close(prefData, noteData, context):
 
 
 if __name__ == "__main__":
-    context = [False]
+    context = [False, verbose]
     main(context)
