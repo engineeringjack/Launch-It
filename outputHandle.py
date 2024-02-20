@@ -40,6 +40,6 @@ def connectOutput(prefData):
 def mainHandler(prefData, outputData, context):
     global outputController
     printv("Sent output note: " +
-           outputData[0] + ", velocity: " + outputData[1], context[1])
+           str(outputData[0]) + ", velocity: " + str(outputData[1]), context[1])
     outputController.send(mido.Message(
         'note_on', note=outputData[0], velocity=outputData[1]))
