@@ -27,8 +27,8 @@
             "layering": false,
             "volume": 0.8,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100
+            "fadeIn": 0,
+            "fadeOut": 0
         }
     }
 }
