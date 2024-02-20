@@ -35,7 +35,7 @@ def startHandle(inputController, prefData, noteData, context):
     thread = threading.Thread(target=mainHandler, args=(
         inputController, prefData, noteData, context,))
     printv("Input operator creating new thread! NoteData: " +
-           noteData, context[1])
+           str(noteData), context[1])
     thread.start()
 
 

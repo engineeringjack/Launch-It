@@ -61,9 +61,9 @@ def mainLighting(prefData, noteData, context, rawInput, directConnect=False):
                     else:
                         print("Invalid lighting type!")
                 audioBuffer(prefData, noteData, context, noteIn)
-            except:
+            except Exception as e:
                 print(
-                    "Failed to get note data! Please record an option for this button.", noteIn)
+                    "[W] Failed to get note data! Please record an option for this button.", noteIn)
     recTask = False
     if recording == True:
         noteOut = noteIn
@@ -164,11 +164,12 @@ def setupLighting(prefData, noteData, context):
 def newBackgroundTask(prefData, noteData, context, note):
     global backgroundQueue
     if note in backgroundQueue:
-        printv("Removing rendering background task for: " + note, context[1])
+        printv("Removing rendering background task for: " +
+               str(note), context[1])
         backgroundQueue.remove(note)
     else:
         backgroundQueue.append(note)
-        printv("New rendering background task on: " + note, context[1])
+        printv("New rendering background task on: " + str(note), context[1])
         thread = threading.Thread(target=backgroundTask, args=(
             prefData, noteData, context, note,))
         thread.start()
@@ -217,7 +218,7 @@ def audioBuffer(prefData, noteData, context, note):
     global backgroundQueue
     thread = threading.Thread(target=audioTask, args=(
         prefData, noteData, context, note,))
-    printv("New audio background task for: " + note, context[1])
+    printv("New audio background task for: " + str(note), context[1])
     thread.start()
 
 
