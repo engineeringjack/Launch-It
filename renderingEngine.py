@@ -125,6 +125,7 @@ def mainLighting(prefData, noteData, context, rawInput, directConnect=False):
             recordingInfo["length"] = (0)
             recordingInfo["fadeIn"] = (100)
             recordingInfo["fadeOut"] = (100)
+            recordingInfo["startAt"] = (0)
             noteData["note"][str(recordingInfo["note"])] = recordingInfo
             noteDataUploader(noteData)
             clearLighting(prefData, noteData, context)
@@ -231,6 +232,7 @@ def audioTask(prefData, noteData, context, note):
         if noteData["note"][str(note)]["actionMode"] == "Aux" and not pygame.mixer.music.get_busy():
             sound = pygame.mixer.Sound(pathToFile)
             sound.set_volume(noteData["note"][str(note)]["volume"])
+            sound.set_pos(noteData["note"][str("note")]["startAt"])
             sound.play(fade_ms=noteData["note"][str(note)]["fadeOut"])
             for x in range(int(sound.get_length()*10)):
                 time.sleep(0.1)
