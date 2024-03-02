@@ -230,18 +230,23 @@ def audioTask(prefData, noteData, context, note):
                                noteData["note"][str(note)]["fileLocation"]))
     while note in backgroundQueue and not suicide:
         if noteData["note"][str(note)]["actionMode"] == "Aux" and not pygame.mixer.music.get_busy():
-            sound = pygame.mixer.Sound(pathToFile)
-            sound.set_volume(noteData["note"][str(note)]["volume"])
-            sound.set_pos(noteData["note"][str("note")]["startAt"])
-            sound.play(fade_ms=noteData["note"][str(note)]["fadeOut"])
-            for x in range(int(sound.get_length()*10)):
+            pygame.mixer.music.load(pathToFile)
+            pygame.mixer.music.set_volume(
+                noteData["note"][str(note)]["volume"])
+            pygame.mixer.music.play(
+                fade_ms=noteData["note"][str(note)]["fadeOut"])
+            pygame.mixer.music.set_pos(
+                noteData["note"][str(note)]["startAt"])
+
+            while (pygame.mixer.music.get_busy()):
                 time.sleep(0.1)
                 if not note in backgroundQueue or suicide:
-                    sound.fadeout(noteData["note"][str(note)]["fadeOut"])
+                    pygame.mixer.music.fadeout(
+                        noteData["note"][str(note)]["fadeOut"])
                     return
-            else:
-                backgroundQueue.remove(note)
-            sound.stop()
+            backgroundQueue.remove(note)
+            pygame.mixer.music.stop()
+            pygame.mixer.music.unload()
             return
 
 
