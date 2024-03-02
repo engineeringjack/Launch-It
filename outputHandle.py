@@ -8,17 +8,17 @@ outputController = None
 def startUp(prefData, noteData, context):
     global outputController
     print("Looking for device...")
-    outputController = connectOutput(prefData)
+    outputController = connectOutput(prefData, context)
     context = False
     print("Now handling output requests.")
     return
 
 
-def connectOutput(prefData):
+def connectOutput(prefData, context):
     global outputController
     alreadySaid = False
     output_ports = mido.get_output_names()
-    print(output_ports)
+    printv(output_ports, context[1])
     alreadySaid2 = False
     while True:
         while not output_ports:

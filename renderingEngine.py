@@ -34,7 +34,9 @@ def mainLighting(prefData, noteData, context, rawInput, directConnect=False):
         if noteIn == prefData["RecordingID"]:
             if recording:
                 clearLighting(prefData, noteData, context)
+                setupLighting(prefData, noteData, context)
                 print("Done programming.")
+                print("Reminder - Data is updated on restart!")
                 veloOut = 0
                 noteOut = noteIn
                 recording = False
@@ -102,8 +104,9 @@ def mainLighting(prefData, noteData, context, rawInput, directConnect=False):
             print("Selected color:", noteIn)
             recordingInfo["colorOnRelease"] = (int(noteIn))
             action = ""
-            while not action in ["a", "l", "c"]:
-                action = input("(a)ux mode, (l)ight mode or (c)ommand mode?")
+            while not action in ["a", "l", "c", "s"]:
+                action = input(
+                    "(a)ux mode, (s)ound mode, (l)ight mode or (c)ommand mode?")
                 action.lower()
             if action == "a":
                 recordingInfo["actionMode"] = ("Aux")
@@ -111,6 +114,8 @@ def mainLighting(prefData, noteData, context, rawInput, directConnect=False):
                 recordingInfo["actionMode"] = ("Light")
             if action == "c":
                 recordingInfo["actionMode"] = ("Command")
+            if action == "s":
+                recordingInfo["actionMode"] = ("Snd")
             action = ""
             while not action in ["f", "s"]:
                 action = input("(f)lash mode or (s)olid mode?")
@@ -252,6 +257,23 @@ def audioTask(prefData, noteData, context, note):
             backgroundQueue.remove(note)
             pygame.mixer.music.stop()
             pygame.mixer.music.unload()
+            return
+        elif noteData["note"][str(note)]["actionMode"] == "Aux" and pygame.mixer.music.get_busy():
+            print("[W] Uh oh! The player is busy.")
+            backgroundQueue.remove(note)
+
+        elif noteData["note"][str(note)]["actionMode"] == "Snd" and not pygame.mixer.music.get_busy():
+            sound = pygame.mixer.Sound(pathToFile)
+            sound.set_volume(noteData["note"][str(note)]["volume"])
+            sound.play(fade_ms=noteData["note"][str(note)]["fadeOut"])
+            for x in range(int(sound.get_length()*10)):
+                time.sleep(0.1)
+                if not note in backgroundQueue or suicide:
+                    sound.fadeout(noteData["note"][str(note)]["fadeOut"])
+                    return
+            else:
+                backgroundQueue.remove(note)
+            sound.stop()
             return
 
 
