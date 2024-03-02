@@ -20,7 +20,12 @@ def mainLighting(prefData, noteData, context, rawInput, directConnect=False):
     if directConnect == True:
         outputHandle.mainHandler(prefData, rawInput, context)
         return
-    noteIn = rawInput.note
+    try:
+        noteIn = rawInput.note
+    except:
+        print(
+            "[W] We just saved a performance. Don't press that again. (Message has no note data)")
+        return
     veloIn = rawInput.velocity
     noteOut = -1
     veloOut = 0
