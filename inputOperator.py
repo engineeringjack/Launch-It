@@ -9,18 +9,19 @@ suicide = False
 
 def startUp(prefData, noteData, context):
     print("Looking for device...")
-    inputController = connectInput(prefData)
+    inputController = connectInput(prefData, context)
     startHandle(inputController, prefData, noteData, context)
     return
 
 
-def connectInput(prefData):
+def connectInput(prefData, context):
     alreadySaid = False
     input_ports = mido.get_input_names()
     while not input_ports:
         input_ports = mido.get_input_names()
         if input_ports and prefData["midi_input_port"] < 0 or prefData["midi_input_port"] >= len(input_ports) and alreadySaid == False:
             print("Device not found, we'll keep looking...")
+            printv(input_ports, context[1])
             alreadySaid = True
     print("Found input: " + input_ports[prefData["midi_input_port"]])
     return mido.open_input(input_ports[prefData["midi_input_port"]])
