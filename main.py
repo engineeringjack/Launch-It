@@ -9,7 +9,7 @@ import traceback
 import time
 import platform
 
-verbose = True
+verbose = False
 
 
 def main(context):
@@ -18,7 +18,7 @@ def main(context):
         printv("Verbose Enabled!", context[1])
         print("Starting...")
         print("Using OS data for... " + platform.system() + "!")
-        print("Running script version: BETA!")
+        print("Running script version: Early Release!")
         print("Script files look okay. Errors will be logged when required.")
         reference = os.path.dirname(os.path.abspath(__file__))
         prefData = prefDataLoader(reference)
