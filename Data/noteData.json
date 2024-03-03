@@ -13,8 +13,8 @@
             "volume": 1.0,
             "length": 0,
             "fadeIn": 100,
-            "fadeOut": 100,
-            "startAt": 60.5
+            "fadeOut": 1000,
+            "startAt": 0
         },
         "83": {
             "note": "83",
@@ -26,10 +26,10 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.6,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
+            "fadeIn": 10,
+            "fadeOut": 2500,
             "startAt": 0
         },
         "85": {
@@ -42,10 +42,10 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.5,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
+            "fadeIn": 10,
+            "fadeOut": 1500,
             "startAt": 0
         },
         "87": {
@@ -58,10 +58,10 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.7,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
+            "fadeIn": 1,
+            "fadeOut": 1500,
             "startAt": 0
         },
         "72": {
@@ -263,6 +263,22 @@
             "actionMode": "Aux",
             "lightMode": "Flash",
             "fileLocation": "No Doubt - Just A Girl.mp3",
+            "command": "",
+            "flashingDelay": 0.5,
+            "layering": false,
+            "volume": 1.0,
+            "length": 0,
+            "fadeIn": 100,
+            "fadeOut": 100,
+            "startAt": 0
+        },
+        "12": {
+            "note": "12",
+            "colorOnPress": 11,
+            "colorOnRelease": 17,
+            "actionMode": "Snd",
+            "lightMode": "Flash",
+            "fileLocation": "bell.mp3",
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
