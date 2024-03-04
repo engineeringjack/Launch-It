@@ -74,11 +74,11 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.6,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
-            "startAt": 0
+            "fadeIn": 10,
+            "fadeOut": 2000,
+            "startAt": 15
         },
         "74": {
             "note": "74",
@@ -90,10 +90,10 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.6,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
+            "fadeIn": 10,
+            "fadeOut": 2000,
             "startAt": 0
         },
         "76": {
@@ -106,11 +106,11 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.7,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
-            "startAt": 0
+            "fadeIn": 10,
+            "fadeOut": 2000,
+            "startAt": 20
         },
         "78": {
             "note": "78",
@@ -122,10 +122,10 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.6,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
+            "fadeIn": 10,
+            "fadeOut": 2000,
             "startAt": 0
         },
         "61": {
@@ -138,10 +138,10 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.6,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
+            "fadeIn": 10,
+            "fadeOut": 2500,
             "startAt": 0
         },
         "63": {
@@ -154,10 +154,10 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.2,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
+            "fadeIn": 0,
+            "fadeOut": 2500,
             "startAt": 0
         },
         "65": {
@@ -170,10 +170,10 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.6,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
+            "fadeIn": 0,
+            "fadeOut": 2000,
             "startAt": 0
         },
         "67": {
@@ -186,10 +186,10 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.7,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
+            "fadeIn": 10,
+            "fadeOut": 2000,
             "startAt": 0
         },
         "52": {
@@ -202,11 +202,11 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.2,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
-            "startAt": 0
+            "fadeIn": 10,
+            "fadeOut": 2000,
+            "startAt": 73
         },
         "54": {
             "note": "54",
@@ -234,10 +234,10 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.7,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
+            "fadeIn": 10,
+            "fadeOut": 2000,
             "startAt": 0
         },
         "58": {
@@ -250,11 +250,11 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.6,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
-            "startAt": 0
+            "fadeIn": 10,
+            "fadeOut": 2000,
+            "startAt": 84
         },
         "41": {
             "note": "41",
@@ -266,10 +266,10 @@
             "command": "",
             "flashingDelay": 0.5,
             "layering": false,
-            "volume": 1.0,
+            "volume": 0.5,
             "length": 0,
-            "fadeIn": 100,
-            "fadeOut": 100,
+            "fadeIn": 10,
+            "fadeOut": 2000,
             "startAt": 0
         },
         "12": {
@@ -286,6 +286,54 @@
             "length": 0,
             "fadeIn": 100,
             "fadeOut": 100,
+            "startAt": 0
+        },
+        "14": {
+            "note": "14",
+            "colorOnPress": 12,
+            "colorOnRelease": 17,
+            "actionMode": "Snd",
+            "lightMode": "Flash",
+            "fileLocation": "horn.mp3",
+            "command": "",
+            "flashingDelay": 0.5,
+            "layering": false,
+            "volume": 1.0,
+            "length": 0,
+            "fadeIn": 100,
+            "fadeOut": 100,
+            "startAt": 0
+        },
+        "18": {
+            "note": "18",
+            "colorOnPress": 12,
+            "colorOnRelease": 17,
+            "actionMode": "Snd",
+            "lightMode": "Flash",
+            "fileLocation": "intro.mp3",
+            "command": "",
+            "flashingDelay": 0.5,
+            "layering": false,
+            "volume": 1.0,
+            "length": 0,
+            "fadeIn": 100,
+            "fadeOut": 100,
+            "startAt": 0
+        },
+        "43": {
+            "note": "43",
+            "colorOnPress": 72,
+            "colorOnRelease": 17,
+            "actionMode": "Aux",
+            "lightMode": "Flash",
+            "fileLocation": "The Cardigans - Lovefool copy.mp3",
+            "command": "",
+            "flashingDelay": 0.5,
+            "layering": false,
+            "volume": 0.5,
+            "length": 0,
+            "fadeIn": 10,
+            "fadeOut": 2000,
             "startAt": 0
         }
     }
