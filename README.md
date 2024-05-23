@@ -69,5 +69,5 @@ Note that if you use the "Adding a queue" instructions the data will be overwrit
 * **fadeOut** How long (in microseconds) should it take to completely fade out of the audio.
 * **startAt** Where should the audio start from. (double in seconds)
 
-> [!Note]
+> [!NOTE]
 > Snd and Aux are diffrent. Aux is used for songs, only one aux can play at a time but allows for the startAt value to be used. However, sounds (Snd) can play at the same time as each other and a the same time as a Aux is being played but must start from the beginning of the file. Sounds are loaded completely before starting the sound while Aux is streamed from the file (allowing for longer files).
